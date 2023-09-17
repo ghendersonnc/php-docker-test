@@ -7,26 +7,15 @@
 </head>
 <body>
     <?php
-        $conn = new mysqli('mysql', 'root', 'secret', 'testdb');
-
-        if ($conn->connect_error) {
-            echo "HELP";
-        } else {
-            $sql = "SELECT * FROM test";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo $row['test'];
-                }
-            }
-        }
+        // Host is the name of the MySQL service set in docker-compose.yml
+        $conn = new mysqli('mysql', 'user', 'secret', 'testdb');
+        
+        // sql stuff...
         
     ?>
     <?php
         include_once('../test.php');
         sayHi();
-
         phpinfo();
     ?>
 
